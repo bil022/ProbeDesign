@@ -1,6 +1,6 @@
-## ProbeDesigner
+## Probe Design
 Probe design is the first step of super-resolution FISH experiments to image and quantify DNAs/RNAs. 
-We developed ProbeDesigner. ProbeDesigner applied a standard 17-nucleotides(nt) off-targets counting table. Our method is substantially faster and easier to use. Notably, it utilizes a memory-efficient data structure that significantly reduces the memory requirement from 64GB to 2GB. In addition, ProbeDesigner provides multiple parameters and new features compared to other methods.
+We developed a method with standard 17-nucleotides(nt) off-targets counting table. Our method is substantially faster and easier to use. Notably, it utilizes a memory-efficient data structure that significantly reduces the memory requirement from 64GB to 2GB. In addition, the method provides multiple parameters and new features compared to other methods.
 
 ## Installation
 
