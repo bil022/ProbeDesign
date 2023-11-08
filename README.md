@@ -6,10 +6,10 @@ Our method is substantially faster and easier to use. We used commonly used 17-n
 
 ### Dependencies
 
-Linux is recommended to run the software. Samtools and BWA are required.
+Linux with minimum 32GB memory is recommended to run the software. Samtools and BWA are required.
 
-* [samtools](https://www.htslib.org/)
-* [bwa](https://github.com/lh3/bwa)
+* [samtools](https://www.htslib.org/) [1.3.1+]
+* [bwa](https://github.com/lh3/bwa) [0.7.12+]
 
 ### User installation
 
@@ -108,3 +108,6 @@ cat gene_filt48.txt
 > ...<br/>
 
 The **FMOD** and **SULF1** are gene names, **AACTTTTCAGAGAGTGACCACGTCCCTCTG** is the probe sequence, and **chr1:203351042:16** are chromosome and positions, where **0** or **16** present the forward and reverse strand. 
+
+## Esitimated running time
+For the installation, most of the tasks require less than 1 min. The building of genome indices (BWS) may take a few hours. For the probe design, one design of 326 genes took about 2 hours. And the job runs in a *batch mode*, it will still need about 1 hour even with one gene. 
