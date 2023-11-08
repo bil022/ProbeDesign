@@ -110,4 +110,4 @@ cat gene_filt48.txt
 The **FMOD** and **SULF1** are gene names, **AACTTTTCAGAGAGTGACCACGTCCCTCTG** is the probe sequence, and **chr1:203351042:16** are chromosome and positions, where **0** or **16** present the forward and reverse strand. 
 
 ## Esitimated running time
-For the installation, most of the tasks require less than 1 min. The building of genome indices (BWS) may take a few hours. For the probe design, one design of 326 genes took about 2 hours. And the job runs in a *batch mode*, it will still need about 1 hour even with one gene. 
+For the installation, most of the tasks require less than 1 minute. The one-time building of genome indices (BWS) may take a few hours. For the probe design, one design of 326 genes took about 2 hours. And the job runs in a *batch mode*, it will still need about 1 hour even with one gene. 
