@@ -23,8 +23,8 @@ bwa index hg38.fa hg38
 Download the source code from Github.
 
 ```sh
-git clone https://github.com/bil022/ProbeDesigner
-cd ProbeDesigner
+git clone https://github.com/bil022/ProbeDesign
+cd ProbeDesign
 ```
 
 ## Compile source code
