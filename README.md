@@ -1,12 +1,12 @@
 ## Probe Design
 Probe design is the first step of super-resolution FISH experiments to image and quantify DNAs/RNAs. 
-We developed a method with standard 17-nucleotides(nt) off-targets counting table. Our method is substantially faster and easier to use. Notably, it utilizes a memory-efficient data structure that significantly reduces the memory requirement from 64GB to 2GB. In addition, the method provides multiple parameters and new features compared to other methods.
+Our method is substantially faster and easier to use. We used commonly used 17-nucleotides(nt) counting table to calculate the off-targets. It utilizes a memory-efficient data structure that significantly reduces the memory requirement from 64GB to 2GB. In addition, the method provided multiple parameters and provided new features compared to existing methods.
 
 ## Installation
 
 ### Dependencies
 
-Linux is recommended to run the software. Also, Samtools and BWA is required. 
+Linux is recommended to run the software. Samtools and BWA are required.
 
 * [samtools](https://www.htslib.org/)
 * [bwa](https://github.com/lh3/bwa)
@@ -47,15 +47,11 @@ make -f bin/Makefile
 
 ## Download files for reference genomes
 
-Multiple files (reference genome sequence, repeated sequences, gtf files, indices) are needed for each reference genome. The reference files for human genome are available below, other refrence files are availble upon request:
+Multiple files of reference genome sequence, gene annotation files (.gtf) and counting table files (.idx) are needed for the reference genome. The reference files for human genome are available below, other refrence files are availble upon request:
 
-* [hg38.tgz](http://renlab.sdsc.edu/ProbeDesigner/ref/hg38.tgz/)
+* [hg38_ref.tgz](http://renlab.sdsc.edu/ProbeDesigner/ref/hg38_ref.tgz/)
 
-## Inputs
-
-Following files are needed as inputs (ex. hg38 for human genome):
-
-* Unzip the required files for reference genomes
+Download and unzip hg38 reference genome:
 
 ```
 cd ref
@@ -64,7 +60,7 @@ zcat hg38.tgz | tar -xvf -
 cd ..
 ```
 
-* The BWA indices is available in the **ref/hg38**, you can build your own using:
+* The BWA indices should be available in the **ref/hg38**, to build the indices:
 
 ```
 cd ref
@@ -72,7 +68,9 @@ bwa index hg38.fa hg38
 cd ..
 ```
 
-* Prepare gene_list.txt with gene of interests
+## Inputs
+
+* The gene_list.txt include gene of interests
 
 ```
 cat gene_list.txt 
@@ -82,7 +80,7 @@ cat gene_list.txt
 > FMOD<br/>
 > SULF1<br/>
 
-* Make sure all genes are available, error message will show up for missing gene names:
+* Make sure all gene names are valid, error message will show up for invalid gene names:
 
 ```
 make -f bin/Makefile id
@@ -95,9 +93,18 @@ make -f bin/Makefile id
 make -f bin/Makefile run
 ```
 
-Main pipeline for probe design, the output is available in **gene_filt48.txt**:
+The main pipeline for probe design. It will run the following tasks step by step: 
 
-For example:
+    make -f bin/Makefile gene_list
+    make -f bin/Makefile scan_genes
+    make -f bin/Makefile gene_qual_design
+    make -f bin/Makefile STAR_QUAL
+    make -f bin/Makefile filter
+In detail, **gene\_list** count the nuclotide frequencies base on the exon information. **scan_genes** count the off-targets for all probe candidates. **gene\_qual\_design** design probes using off-targets information. **STAR\_QUAL** re-map probe sequence to the genome. **filter** identify the top probes.
+
+## Output
+
+The output is **gene_filt48.txt**, the bam and bigbed files are also available for visualization:
 
 ```
 cat gene_filt48.txt
