@@ -11,13 +11,6 @@ Linux is recommended to run the software. Samtools and BWA are required.
 * [samtools](https://www.htslib.org/)
 * [bwa](https://github.com/lh3/bwa)
 
-Also, the index of reference genome (ex. hg38) for bwa should be build if it does not exist.
-
-```
-cd ref
-bwa index hg38.fa hg38
-```
-
 ### User installation
 
 Download the source code from Github.
