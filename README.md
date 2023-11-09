@@ -16,8 +16,8 @@ Linux with minimum 32GB memory is recommended to run the software. Samtools and 
 Download the source code from Github.
 
 ```sh
-git clone https://github.com/bil022/ProbeDesign
-cd ProbeDesign
+git clone https://github.com/bil022/ProbeDesigner
+cd ProbeDesigner
 ```
 
 ## Compile source code
