@@ -2,7 +2,7 @@
 
 Multiple files of reference genome sequence, gene annotation files (.gtf) and counting table files (.idx) are needed for the reference genome. The reference files for human genome are available below, other refrence files are availble upon request:
 
-* [hg38_ref.tgz](http://renlab.sdsc.edu/ProbeDesigner/ref/hg38_ref.tgz/)
+* [hg38_ref.tgz](http://renlab.sdsc.edu/ProbeDesigner/ref/hg38_ref.tgz)
 
 Download and unzip hg38 reference genome:
 
